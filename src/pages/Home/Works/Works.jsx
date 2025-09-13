@@ -16,21 +16,21 @@ function Works() {
 
                 <div className='p-8 rounded-2xl bg-white max-w-[302px]'>
                     <img src={bookingIcon} alt="" />
-                    <h2 className='text-base-300 font-bold text-[20px] mt-6'>Booking Pick & Drop</h2>
+                    <h2 className='text-base-300 font-bold text-[20px] mt-6'>Cash On Delivery</h2>
                     <p className='text-base-200 text-base mt-4'>From personal packages to business shipments — we deliver on time, every time.</p>
                 </div>
 
 
                 <div className='p-8 rounded-2xl bg-white max-w-[302px]'>
                     <img src={bookingIcon} alt="" />
-                    <h2 className='text-base-300 font-bold text-[20px] mt-6'>Booking Pick & Drop</h2>
+                    <h2 className='text-base-300 font-bold text-[20px] mt-6'>Delivery Hub</h2>
                     <p className='text-base-200 text-base mt-4'>From personal packages to business shipments — we deliver on time, every time.</p>
                 </div>
 
 
                 <div className='p-8 rounded-2xl bg-white max-w-[302px]'>
                     <img src={bookingIcon} alt="" />
-                    <h2 className='text-base-300 font-bold text-[20px] mt-6'>Booking Pick & Drop</h2>
+                    <h2 className='text-base-300 font-bold text-[20px] mt-6'>Booking SME & Corporate</h2>
                     <p className='text-base-200 text-base mt-4'>From personal packages to business shipments — we deliver on time, every time.</p>
                 </div>
 
