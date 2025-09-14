@@ -1,4 +1,3 @@
-import React from 'react'
 import liveImg from "../../../assets/live-tracking.png"
 import saveImg from "../../../assets/safe-delivery.png"
 
