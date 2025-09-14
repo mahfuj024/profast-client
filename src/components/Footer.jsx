@@ -3,7 +3,7 @@ import ProfastLogo from '../pages/Shared/ProfastLogo'
 
 function Footer() {
   return (
-    <footer className="footer footer-horizontal footer-center bg-black text-white rounded-2xl p-10">
+    <footer className="footer footer-horizontal footer-center bg-black text-white rounded-2xl p-10 mt-8 md:mt-12 lg:mt-20">
   <aside className='space-y-4'>
     <ProfastLogo></ProfastLogo>
     <p className='text-center'>

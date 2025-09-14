@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router'
+import { Link, NavLink } from 'react-router'
 import ProfastLogo from '../pages/Shared/ProfastLogo'
 
 function Navbar() {
@@ -34,7 +34,7 @@ function Navbar() {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        <Link to="/login" className="btn bg-white">Sign In</Link>
       </div>
     </div>
   )
