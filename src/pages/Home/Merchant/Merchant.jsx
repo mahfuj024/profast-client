@@ -2,7 +2,7 @@ import locationMerchant from "../../../assets/location-merchant.png"
 
 function Merchant() {
     return (
-        <div className='max-w-[1282px] mx-auto mt-8 md:mt-12 lg:mt-20 bg-[#03373D] rounded-2xl flex p-6 md:p-10 lg:p-20 flex-col lg:flex-row'>
+        <div data-aos="zoom-in-up" className='max-w-[1282px] mx-auto mt-8 md:mt-12 lg:mt-20 bg-[url("assets/be-a-merchant-bg.png")] bg-no-repeat  bg-[#03373D] rounded-2xl flex p-6 md:p-10 lg:p-20 flex-col lg:flex-row'>
             <div>
                 <h1 className="text-white text-3xl md:text-4xl font-extrabold">Merchant and Customer Satisfaction <br /> is Our First Priority</h1>
                 <p className="text-white mt-4">We offer the lowest delivery charge with the highest value along with <br /> 100% safety of your product. Pathao courier delivers your parcels in every corner of Bangladesh right on time.</p>

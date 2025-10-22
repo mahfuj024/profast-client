@@ -8,7 +8,7 @@ function Benefits() {
 
             <div className='mt-6 md:mt-10 lg:mt-16 space-y-6'>
 
-                <div className='flex items-center bg-white rounded-2xl p-8 gap-12 flex-col md:flex-row'>
+                <div data-aos="zoom-in" className='flex items-center bg-white rounded-2xl p-8 gap-12 flex-col md:flex-row'>
                     <img src={liveImg} alt="live tracking img" />
                  
                         <div class="hidden md:block border-l-2 border-dashed border-gray-400 h-32 mx-6"></div>
@@ -19,7 +19,7 @@ function Benefits() {
                     </div>
                 </div>
 
-                <div className='flex items-center bg-white rounded-2xl p-8 gap-12 flex-col md:flex-row'>
+                <div data-aos="zoom-in" className='flex items-center bg-white rounded-2xl p-8 gap-12 flex-col md:flex-row'>
                     <img src={saveImg} alt="save delivery img" />
                  
                         <div class="hidden md:block border-l-2 border-dashed border-gray-400 h-32 mx-6"></div>
@@ -30,7 +30,7 @@ function Benefits() {
                     </div>
                 </div>
 
-                <div className='flex items-center bg-white rounded-2xl p-8 gap-12 flex-col md:flex-row'>
+                <div data-aos="zoom-in" className='flex items-center bg-white rounded-2xl p-8 gap-12 flex-col md:flex-row'>
                     <img src={saveImg} alt="save delivery img" />
                  
                         <div class="hidden md:block border-l-2 border-dashed border-gray-400 h-32 mx-6"></div>
