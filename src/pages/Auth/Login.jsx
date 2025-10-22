@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import ProfastLogo from '../Shared/ProfastLogo'
 import LoginWithGoogle from './LoginWithGoogle'
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 import { useForm } from 'react-hook-form'
 import { AuthContext } from '../../context/AuthContext'
 import { ToastContainer, toast } from 'react-toastify';
@@ -10,6 +10,7 @@ function Login() {
 
   const { register, handleSubmit } = useForm()
   const {signIn} = useContext(AuthContext)
+  const navigate = useNavigate()
 
   const onSubmit = (data) => {
     const email = data?.email
@@ -20,6 +21,7 @@ function Login() {
       const user = userCredential?.user
       if(user){
         toast("Login successful");
+        navigate("/")
         console.log(user)
       }
     })

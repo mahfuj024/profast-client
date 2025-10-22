@@ -1,8 +1,26 @@
-import React from 'react'
-import { Link, NavLink } from 'react-router'
+import React, { useContext } from 'react'
+import { Link, NavLink, useNavigate } from 'react-router'
 import ProfastLogo from '../pages/Shared/ProfastLogo'
+import { AuthContext } from '../context/AuthContext'
+import { ToastContainer, toast } from 'react-toastify';
 
 function Navbar() {
+
+  const { logOut, user } = useContext(AuthContext)
+  const navigate = useNavigate()
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        toast("Sign out");
+        navigate("/")
+      })
+      .catch(error => {
+        if (error) {
+          toast("An error happened.");
+        }
+      })
+  }
 
   const navItem = [
     <li><NavLink to="/"></NavLink></li>,
@@ -34,8 +52,15 @@ function Navbar() {
         </ul>
       </div>
       <div className="navbar-end">
-        <Link to="/login" className="btn bg-white">Sign In</Link>
+        {
+          user ?
+            <button onClick={handleLogOut} className='btn bg-white'>Log out</button>
+            :
+            <Link to="/login" className="btn bg-white">Sign In</Link>
+        }
+
       </div>
+      <ToastContainer />
     </div>
   )
 }
