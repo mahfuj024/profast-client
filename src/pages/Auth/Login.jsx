@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import ProfastLogo from '../Shared/ProfastLogo'
 import LoginWithGoogle from './LoginWithGoogle'
-import { Link, useNavigate } from 'react-router'
+import { Link, useLocation, useNavigate } from 'react-router'
 import { useForm } from 'react-hook-form'
 import { AuthContext } from '../../context/AuthContext'
 import { ToastContainer, toast } from 'react-toastify';
@@ -9,29 +9,33 @@ import { ToastContainer, toast } from 'react-toastify';
 function Login() {
 
   const { register, handleSubmit } = useForm()
-  const {signIn} = useContext(AuthContext)
+  const { signIn } = useContext(AuthContext)
   const navigate = useNavigate()
+  const location = useLocation()
+
+  // after login redirect back
+  const from = location.state?.from?.pathname || "/";
 
   const onSubmit = (data) => {
     const email = data?.email
     const password = data?.password
 
     signIn(email, password)
-    .then((userCredential) => {
-      const user = userCredential?.user
-      if(user){
-        toast("Login successful");
-        navigate("/")
-        console.log(user)
-      }
-    })
-    .catch(error => {
-      const errorMessage = error?.message
-      if(errorMessage){
-        toast("Invalid email or password ❌");
-        console.log(errorMessage)
-      }
-    })
+      .then((userCredential) => {
+        const user = userCredential?.user
+        if (user) {
+          toast("Login successful");
+          navigate(from, { replace: true })
+          console.log(user)
+        }
+      })
+      .catch(error => {
+        const errorMessage = error?.message
+        if (errorMessage) {
+          toast("Invalid email or password ❌");
+          console.log(errorMessage)
+        }
+      })
   }
 
   return (
@@ -44,11 +48,11 @@ function Login() {
 
           <div className="space-y-1 text-sm mt-8">
             <label htmlFor="email" className="block dark:text-gray-600 font-semibold">Email</label>
-            <input {...register("email", {required : true})} type="email" name="email" id="email" placeholder="email" className="w-full px-4 py-3 rounded-md dark:border-gray-300 outline-1 outline-stone-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
+            <input {...register("email", { required: true })} type="email" name="email" id="email" placeholder="email" className="w-full px-4 py-3 rounded-md dark:border-gray-300 outline-1 outline-stone-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
           </div>
           <div className="space-y-1 text-sm">
             <label htmlFor="password" className="block dark:text-gray-600 font-semibold">Password</label>
-            <input {...register("password", {required : true})} type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md dark:border-gray-300 outline-1 outline-stone-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
+            <input {...register("password", { required: true })} type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md dark:border-gray-300 outline-1 outline-stone-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
 
           </div>
           <button className="block w-full p-3 text-center rounded-sm font-bold bg-primary">Log in</button>
