@@ -3,11 +3,12 @@ import ProfastLogo from '../pages/Shared/ProfastLogo'
 
 function Footer() {
   return (
-    <footer className="footer footer-horizontal footer-center bg-black text-white rounded-2xl p-10 mt-8 md:mt-12 lg:mt-20">
+    <footer className="footer mt-4 md:mt-8 footer-horizontal footer-center bg-black text-white rounded-2xl py-6 md:py-10 lg:py-20 px-6 md:px-9 lg:px-28">
   <aside className='space-y-4'>
     <ProfastLogo></ProfastLogo>
     <p className='text-center'>
-      Enjoy fast, reliable parcel delivery with real-time tracking and zero hassle. From personal packages to <br /> business shipments — we deliver on time, every time.
+      Enjoy fast, reliable parcel delivery with real-time tracking and zero hassle. From personal packages to 
+      <br className='hidden lg:block'/> business shipments — we deliver on time, every time.
     </p>
     <p>Copyright © {new Date().getFullYear()} - All right reserved</p>
   </aside>

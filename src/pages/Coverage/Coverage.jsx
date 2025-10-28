@@ -112,7 +112,7 @@ function Coverage() {
     };
 
     return (
-        <div className='mt-4 md:mt-8 bg-white rounded-2xl md:rounded-3xl py-6 md:py-10 lg:py-20 px-2 md:px-10 lg:px-28'>
+        <div className='mt-4 md:mt-8 bg-white rounded-2xl md:rounded-3xl py-6 md:py-10 lg:py-20 px-6 md:px-9 lg:px-28'>
             <h1 className='text-2xl md:text-3xl lg:text-5xl font-bold'>We are available in 64 districts</h1>
 
             {/* 🔍 Search Box */}
@@ -128,7 +128,7 @@ function Coverage() {
             </form>
 
             {/* divider */}
-            <hr class="border-t-2 border-gray-200 mt-4 md:mt-6 lg:mt-12" />
+            <hr class="border-t-1 border-[#0000001A] mt-4 md:mt-6 lg:mt-12" />
 
             <h2 className='text-lg md:text-2xl lg:text-3xl font-bold mt-4 md:mt-6 lg:mt-12'>We deliver almost all over Bangladesh</h2>
 

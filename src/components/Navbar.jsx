@@ -26,13 +26,14 @@ function Navbar() {
     <li><NavLink to="/"></NavLink></li>,
     <li><NavLink className={({ isActive }) => isActive ? "bg-primary rounded-full font-bold" : ""} to="/services">Services</NavLink></li>,
     <li><NavLink className={({ isActive }) => isActive ? "bg-primary rounded-full font-bold" : ""} to="/coverage">Coverage</NavLink></li>,
+    <li><NavLink className={({ isActive }) => isActive ? "bg-primary rounded-full font-bold" : ""} to="/sendParcel">Send A Parcel</NavLink></li>,
     <li><NavLink className={({ isActive }) => isActive ? "bg-primary rounded-full font-bold" : ""} to="/aboutUs">About Us</NavLink></li>,
     <li><NavLink className={({ isActive }) => isActive ? "bg-primary rounded-full font-bold" : ""} to="/pricing">Pricing</NavLink></li>,
     <li><NavLink className={({ isActive }) => isActive ? "bg-primary rounded-full font-bold" : ""} to="/BeARider">Be a Rider</NavLink></li>
   ]
 
   return (
-    <div className="navbar sticky top-0 z-50 bg-white px-2 md:px-4 lg:px-8 py-2 md:py-4 lg:py-5 rounded-2xl">
+    <div className="navbar sticky top-0 z-50 bg-white pl-2 pr-6 md:pl-4 md:pr-8 lg:px-8 py-2 md:py-4 lg:py-5 rounded-2xl">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
