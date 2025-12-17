@@ -1,27 +1,19 @@
 import { useForm } from "react-hook-form";
-import { useState, useEffect } from "react";
+import { useContext, useState } from "react";
 import Swal from 'sweetalert2';
+import { AuthContext } from "../../context/AuthContext";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 function SendParcel() {
     const { register, handleSubmit, watch, reset } = useForm();
     const [cost, setCost] = useState(null);
-    const [currentUser, setCurrentUser] = useState(null);
+    const { user } = useContext(AuthContext)
+    const axiosSecure = useAxiosSecure()
 
     const type = watch("type");
     const senderRegion = watch("senderRegion");
     const receiverRegion = watch("receiverRegion");
     const weight = watch("weight");
-
-    // Current user information
-    useEffect(() => {
-        // Example user data - replace with your actual user data
-        const userData = {
-            email: "user@example.com",
-            name: "John Doe",
-            id: "12345"
-        };
-        setCurrentUser(userData);
-    }, []);
 
     // 📦 Pricing calculation logic with breakdown
     const calculateCost = (data) => {
@@ -131,18 +123,23 @@ function SendParcel() {
                 const parcelData = {
                     ...data,
                     totalCost: costBreakdown.total,
-                    createdBy: currentUser.email,
-                    creatorId: currentUser.id,
-                    creatorName: currentUser.name,
+                    createdBy: user?.email,
                     creation_date: new Date().toISOString(),
+                    delivery_status: "pending",
+                    payment_status: "unpaid",
+                    tracking_id: `TRK${Date.now()}${Math.random().toString(36).substr(2, 9)}`
                 };
 
-                console.log("Parcel Data for Payment:", parcelData);
+                // save parcelData in database
+                axiosSecure.post("/parcels", parcelData)
+                    .then(res => {
+                        console.log(res.data)
+                        if (res?.data?.insertedId) {
 
-                // Show payment success message
-                Swal.fire({
-                    title: 'Payment Successful!',
-                    html: `
+                            // redirect to a payment page
+                            Swal.fire({
+                                title: 'Payment Successful!',
+                                html: `
                         <div class="text-center">
                             <div class="text-green-500 text-5xl mb-3">✓</div>
                             <p class="text-lg font-semibold mb-2 text-green-800">Payment Completed Successfully!</p>
@@ -153,13 +150,15 @@ function SendParcel() {
                             </div>
                         </div>
                     `,
-                    icon: 'success',
-                    confirmButtonText: 'Done',
-                    customClass: {
-                        popup: 'rounded-2xl max-w-sm',
-                        confirmButton: 'bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold text-sm'
-                    }
-                });
+                                icon: 'success',
+                                confirmButtonText: 'Done',
+                                customClass: {
+                                    popup: 'rounded-2xl max-w-sm',
+                                    confirmButton: 'bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold text-sm'
+                                }
+                            });
+                        }
+                    })
 
                 reset();
                 setCost(null);
