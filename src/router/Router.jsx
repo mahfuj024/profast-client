@@ -8,6 +8,7 @@ import Login from "../pages/Auth/Login";
 import Coverage from "../pages/Coverage/Coverage";
 import PrivateRoute from "../routes/PrivateRoute";
 import SendParcel from "../pages/SendParcel/SendParcel";
+import MyParcel from "../pages/MyParcel/MyParcel";
 
 export const router = createBrowserRouter([
   {
@@ -17,7 +18,8 @@ export const router = createBrowserRouter([
     children: [
       { index: true, Component : Home},
       {path : "/coverage", Component : Coverage},
-      {path : "/sendParcel", element : <PrivateRoute><SendParcel></SendParcel></PrivateRoute>}
+      {path : "/sendParcel", element : <PrivateRoute><SendParcel></SendParcel></PrivateRoute>},
+      {path : "/myParcel", element : <PrivateRoute><MyParcel></MyParcel></PrivateRoute>}
     ]
   },
   {

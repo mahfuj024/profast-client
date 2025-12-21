@@ -24,11 +24,12 @@ function Navbar() {
 
   const navItem = [
     <li><NavLink to="/"></NavLink></li>,
-    <li><NavLink className={({ isActive }) => isActive ? "bg-primary rounded-full font-bold" : ""} to="/services">Services</NavLink></li>,
+    // <li><NavLink className={({ isActive }) => isActive ? "bg-primary rounded-full font-bold" : ""} to="/services">Services</NavLink></li>,
     <li><NavLink className={({ isActive }) => isActive ? "bg-primary rounded-full font-bold" : ""} to="/coverage">Coverage</NavLink></li>,
     <li><NavLink className={({ isActive }) => isActive ? "bg-primary rounded-full font-bold" : ""} to="/sendParcel">Send A Parcel</NavLink></li>,
-    <li><NavLink className={({ isActive }) => isActive ? "bg-primary rounded-full font-bold" : ""} to="/aboutUs">About Us</NavLink></li>,
-    <li><NavLink className={({ isActive }) => isActive ? "bg-primary rounded-full font-bold" : ""} to="/pricing">Pricing</NavLink></li>,
+    <li><NavLink className={({ isActive }) => isActive ? "bg-primary rounded-full font-bold" : ""} to="/myParcel">My Parcel</NavLink></li>,
+    // <li><NavLink className={({ isActive }) => isActive ? "bg-primary rounded-full font-bold" : ""} to="/aboutUs">About Us</NavLink></li>,
+    // <li><NavLink className={({ isActive }) => isActive ? "bg-primary rounded-full font-bold" : ""} to="/pricing">Pricing</NavLink></li>,
     <li><NavLink className={({ isActive }) => isActive ? "bg-primary rounded-full font-bold" : ""} to="/BeARider">Be a Rider</NavLink></li>
   ]
 
