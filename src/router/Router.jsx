@@ -9,6 +9,7 @@ import Coverage from "../pages/Coverage/Coverage";
 import PrivateRoute from "../routes/PrivateRoute";
 import SendParcel from "../pages/SendParcel/SendParcel";
 import MyParcel from "../pages/MyParcel/MyParcel";
+import Payment from "../pages/Payment/Payment";
 
 export const router = createBrowserRouter([
   {
@@ -16,23 +17,24 @@ export const router = createBrowserRouter([
     Component: MainLayouts,
     errorElement: <ErrorPage></ErrorPage>,
     children: [
-      { index: true, Component : Home},
-      {path : "/coverage", Component : Coverage},
-      {path : "/sendParcel", element : <PrivateRoute><SendParcel></SendParcel></PrivateRoute>},
-      {path : "/myParcel", element : <PrivateRoute><MyParcel></MyParcel></PrivateRoute>}
+      { index: true, Component: Home },
+      { path: "/coverage", Component: Coverage },
+      { path: "/sendParcel", element: <PrivateRoute><SendParcel></SendParcel></PrivateRoute> },
+      { path: "/myParcel", element: <PrivateRoute><MyParcel></MyParcel></PrivateRoute> },
+      { path: "/payment/:parcelId", Component: Payment }
     ]
   },
   {
-    path : "/",
-    Component : AuthLayouts,
-    children : [
+    path: "/",
+    Component: AuthLayouts,
+    children: [
       {
-        path : "/register",
-        Component : Register
+        path: "/register",
+        Component: Register
       },
       {
-        path : "/login",
-        Component : Login
+        path: "/login",
+        Component: Login
       }
     ]
   }

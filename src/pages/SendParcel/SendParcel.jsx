@@ -138,11 +138,11 @@ function SendParcel() {
 
                             // redirect to a payment page
                             Swal.fire({
-                                title: 'Payment Successful!',
+                                title: 'Add Successful!',
                                 html: `
                         <div class="text-center">
                             <div class="text-green-500 text-5xl mb-3">✓</div>
-                            <p class="text-lg font-semibold mb-2 text-green-800">Payment Completed Successfully!</p>
+                            <p class="text-lg font-semibold mb-2 text-green-800">Add Successfully!</p>
                             <p class="text-sm text-gray-600 mb-4">Your parcel has been booked and payment received.</p>
                             <div class="p-3 bg-green-50 rounded-lg border border-green-200">
                                 <p class="text-sm"><span class="font-medium">Amount Paid:</span> ৳${costBreakdown.total}</p>

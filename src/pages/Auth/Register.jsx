@@ -33,7 +33,7 @@ function Register() {
     }
 
     return (
-        <div className='p-2 md:p-4 lg:p-8'>
+        <div className='p-2 md:p-4 lg:p-8 min-h-screen'>
             <ProfastLogo></ProfastLogo>
             <div className="w-full mx-auto max-w-md p-8 space-y-3 rounded-xl bg-white dark:text-gray-800">
                 <h1 className="text-3xl md:text-4xl font-extrabold">Create an Account</h1>
