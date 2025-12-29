@@ -1,14 +1,17 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useQuery } from "@tanstack/react-query";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useParams } from "react-router";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { ToastContainer, toast } from "react-toastify";
+import { AuthContext } from "../../context/AuthContext";
 
 function PaymentForm() {
   const stripe = useStripe();
   const elements = useElements();
   const { parcelId } = useParams()
   const axiosSecure = useAxiosSecure()
+  const { user } = useContext(AuthContext)
 
   const [error, setError] = useState("")
 
@@ -46,7 +49,6 @@ function PaymentForm() {
       setError(error.message)
     } else {
       setError("")
-      console.log(paymentMethod);
     }
 
     // create payment intent
@@ -61,18 +63,36 @@ function PaymentForm() {
       payment_method: {
         card: elements.getElement(CardElement),
         billing_details: {
-          name: "Jenny Rosen"
+          name: user?.displayName,
+          email: user?.email
         }
       }
     })
     if (result.error) {
-      console.log(result.error.message)
+      setError(result.error.message)
     } else {
+      setError("")
       if (result.paymentIntent.status === "succeeded") {
-        console.log("payment succeeded!")
-        console.log(result)
+
+        const paymentData = {
+          parcelId,
+          email: user?.email,
+          paymentMethod: result.paymentIntent.payment_method_types,
+          amount,
+          transactionId: result.paymentIntent.id
+        }
+
+        const paymentRes = await axiosSecure.post("/payments", paymentData)
+        if (paymentRes.data?.paymentResult?.insertedId) {
+          toast.success("Payment successful!", {
+            position: "top-right",
+            autoClose: 2500,
+          });
+        }
+
       }
     }
+    <ToastContainer />
   };
 
   return (
