@@ -2,20 +2,33 @@ import React, { useContext } from 'react'
 import { AuthContext } from '../../context/AuthContext'
 import { ToastContainer, toast } from 'react-toastify';
 import { useLocation, useNavigate } from 'react-router';
+import useAxios from '../../hooks/useAxios';
 
 function LoginWithGoogle({ name }) {
 
     const { googleLogin } = useContext(AuthContext)
     const navigate = useNavigate()
     const location = useLocation()
+    const axiosInsTance = useAxios()
 
     // after login redirect back
     const from = location.state?.from?.pathname || "/";
 
     const handleLoginWithGoogle = () => {
         googleLogin()
-            .then(result => {
+            .then(async (result) => {
                 const user = result?.user
+
+                //  update user info in database
+                const userInfo = {
+                    email: user.email,
+                    role: "user", //default role
+                    created_at: new Date().toISOString(),
+                    last_log_in: new Date().toISOString
+                }
+                const res = await axiosInsTance.post("/users", userInfo)
+                console.log("user update info :", res.data)
+
                 if (user) {
                     toast("Login successful");
                     navigate(from, { replace: true })
