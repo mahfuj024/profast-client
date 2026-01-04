@@ -112,7 +112,7 @@ function Coverage() {
     };
 
     return (
-        <div className='mt-4 md:mt-8 bg-white rounded-2xl md:rounded-3xl py-6 md:py-10 lg:py-20 px-6 md:px-9 lg:px-28'>
+        <div className='min-h-screen mt-4 md:mt-8 bg-white rounded-xl md:rounded-2xl py-6 md:py-10 lg:py-20 px-6 md:px-9 lg:px-28'>
             <h1 className='text-2xl md:text-3xl lg:text-5xl font-bold'>We are available in 64 districts</h1>
 
             {/* 🔍 Search Box */}

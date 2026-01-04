@@ -181,8 +181,8 @@ function SendParcel() {
     };
 
     return (
-        <div className='mt-4 md:mt-8 bg-white rounded-2xl md:rounded-3xl py-6 md:py-10 lg:py-20 px-6 md:px-9 lg:px-28'>
-            <h1 className="text-[35px] md:text-[44px] lg:text-[56px] font-[800] text-[#03373d]">
+        <div className='min-h-screen mt-4 md:mt-8 bg-white rounded-xl md:rounded-2xl py-6 md:py-10 lg:py-20 px-6 md:px-9 lg:px-28'>
+            <h1 className='text-2xl md:text-3xl lg:text-5xl font-bold'>
                 Add Parcel
             </h1>
 

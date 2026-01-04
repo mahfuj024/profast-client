@@ -48,9 +48,9 @@ function MyParcel() {
   };
 
   return (
-    <div className="min-h-screen mt-4 md:mt-8 bg-white font-semibold rounded-xl md:rounded-2xl py-6 md:py-10 lg:py-14 px-4 md:px-8 lg:px-24">
+    <div className='min-h-screen mt-4 md:mt-8 bg-white rounded-xl md:rounded-2xl py-6 md:py-10 lg:py-20 px-6 md:px-9 lg:px-28'>
       <div className="flex items-center gap-4 mb-8">
-        <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase tracking-tight">
+        <h2 className='text-2xl md:text-3xl lg:text-5xl font-bold'>
           My Parcels
         </h2>
       </div>
